@@ -1,14 +1,27 @@
-name: Extract Values and Use Variables 
+name: Checkout Code
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  extract-values:
-    runs-on: tt
+  checkout:
+    runs-on: ubuntu-latest  # Using a default runner with Docker support
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Run in Docker
+      uses: addnab/docker-run-action@v3
+      with:
+        image: node:12  # Use a Node.js 12 Docker image
+        options: -v ${{ github.workspace }}:/workspace  # Mount the repository
+        run: |
+          cd /workspace
+          node -v
+          ls -la
