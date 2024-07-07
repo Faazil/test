@@ -1,0 +1,14 @@
+name: Extract Values and Use Variables 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  extract-values:
+    runs-on: sun
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
