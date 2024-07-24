@@ -8,11 +8,11 @@ on:
 
 jobs:
   checkout:
-    runs-on: rhel80  # Using a default runner with Docker support
+    runs-on: ubuntu-latest  # Using a default runner with Docker support
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Run in Docker
-      run: pwd
+      run: pwd && date
