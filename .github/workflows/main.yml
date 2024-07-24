@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+      - feature-*
+      - develop
   
 
 jobs:
@@ -15,4 +17,4 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Run in Docker
-      run: pwd && date
+      run: pwd && touch akhila2.txt
